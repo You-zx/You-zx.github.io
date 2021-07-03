@@ -175,7 +175,7 @@
     <content><![CDATA[<h1 id="Python基础语法"><a href="#Python基础语法" class="headerlink" title="Python基础语法"></a>Python基础语法</h1><h2 id="基础要点"><a href="#基础要点" class="headerlink" title="基础要点"></a>基础要点</h2><p><strong>语法块:</strong></p>
 <p> 用缩进（四个空格）而不是分号、花括号等符号来标记。因此，行首的空格不能随意书写。</p>
 <p><strong>注释</strong></p>
-<p>行内用<code>#</code>号，行间注释写在两组连续三单引号之间：<code>’’’</code></p>
+<p>行内用<code>#</code>号，行间注释写在两组连续三单引号<code>’’’</code> <code>’’’</code>之间：</p>
 <p><strong>续行</strong></p>
 <p>行尾输入一个反斜杠<code>\</code>加一个空格，再换行。如果行尾语法明显未完成（比如以逗号结尾），可以直接续行。</p>
 <p><strong>打印与输入</strong></p>
@@ -185,7 +185,7 @@
 <p><strong>删除变量</strong></p>
 <p><code>del()</code></p>
 <p><strong>赋值变量</strong></p>
-<p>直接将变量a赋值给b，有时仅仅复制了一个“引用”。此后 b 与 a 的改动仍会互相影响。必要时使用 a is b 来判断是否同址。</p>
+<p>直接将变量a赋值给b，有时仅仅复制了一个“引用”。此后 b 与 a 的改动仍会互相影响。必要时使用 a <code>is</code> b 来判断是否同址。</p>
 <p><strong>模块</strong></p>
 <p>通过 <code>import pandas</code> 的方式加载模块（或者 <code>import pandas as pd</code>），并用形如 <code>pandas.DataFrame</code>（或 <code>pd.DataFrame</code>）的方式调用模块内的方法。也可以使用 <code>from pandas import DataFrame</code> 的方式，这样在下文可以直接使用 <code>DataFrame</code> 作为调用名。</p>
 <p><strong>帮助</strong></p>
@@ -193,8 +193,8 @@
 <h2 id="一、标识符规定"><a href="#一、标识符规定" class="headerlink" title="一、标识符规定"></a>一、标识符规定</h2><p>1.第一个字符必须是字母或下划线<code>_</code>，剩下的字符可以是字母和数字或下划线<br/></p>
 <ul>
 <li>单下划线开头 _foo 的代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用 <code>from xxx import *</code> 而导入</li>
-<li>双下划线开头的 <code>__foo</code>代表类的私有成员</li>
-<li>双下划线开头和结尾的 <code>__foo__</code> 代表 Python 里特殊方法专用的标识，如 <code>__init__()</code> 代表类的构造函数</li>
+<li>双下划线开头的 _foo 代表类的私有成员</li>
+<li>双下划线开头和结尾的 <strong>foo</strong> 代表 Python 里特殊方法专用的标识，如 <code>__init__()</code> 代表类的构造函数</li>
 </ul>
 <p>2.区分大小写<br>3.不能是 Python 的关键字，例如 <code>def、class</code><br>4.在同一行显示多条语句需要使用分号<code>;</code> 隔开。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#输入</span><br><span class="line">print(&quot;hello&quot;);print(&quot;world&quot;);</span><br><span class="line"></span><br><span class="line">#输出</span><br><span class="line">hello</span><br><span class="line">world</span><br></pre></td></tr></table></figure>
@@ -249,12 +249,12 @@
 <h2 id="三、缩进"><a href="#三、缩进" class="headerlink" title="三、缩进"></a>三、缩进</h2><ul>
 <li>Python 用缩进层次来组织代码块，而约定一个缩进是用‘4个空格’来表示，请务必遵守约定俗成的习惯，坚持使用4个空格的缩进。</li>
 <li>如果是用文本编辑器或者 IDE，可以把 Tab 自动转换为4个空格，然后用 tab 键来使用缩进，确保不混用 Tab 和空格。</li>
-<li>缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行。<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#正确写法</span></span><br><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Right&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Wrong&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#错误写法</span></span><br><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Right&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Wrong&quot;</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;Retry&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行。<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#正确写法</span></span><br><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Right&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Wrong&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Retry&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#错误写法</span></span><br><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Right&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Wrong&quot;</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;Retry&quot;</span>)</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="四、多行语句"><a href="#四、多行语句" class="headerlink" title="四、多行语句"></a>四、多行语句</h2><p>Python 语句中一般以新行作为为语句的结束符。<br>但是我们可以使用<code>\</code>将一行的语句分为多行显示，如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">total = item_one + \</span><br><span class="line">        item_two + \</span><br><span class="line">        item_three</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">total = item_one + \</span><br><span class="line">        item_two + \</span><br><span class="line">        item_three</span><br></pre></td></tr></table></figure>
 <p>语句由<code>[]</code> <code>&#123;&#125;</code>或<code>()</code>包裹就不需要使用多行连接符。如下实例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">days = [&#x27;Monday&#x27;, &#x27;Tuesday&#x27;, &#x27;Wednesday&#x27;,</span><br><span class="line">        &#x27;Thursday&#x27;, &#x27;Friday&#x27;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">days = [<span class="string">&#x27;Monday&#x27;</span>, <span class="string">&#x27;Tuesday&#x27;</span>, <span class="string">&#x27;Wednesday&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Thursday&#x27;</span>, <span class="string">&#x27;Friday&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="五、引号"><a href="#五、引号" class="headerlink" title="五、引号"></a>五、引号</h2><p>Python 以<code>&#39;</code> <code>&quot;</code> <code>&quot;&quot;&quot;</code> <code>&#39;&#39;&#39;</code>来表示字符串，引号的开始与结束必须的相同类型的。<br>其中<code>&quot;&quot;&quot;</code> <code>&#39;&#39;&#39;</code>可以也是编写多行文本的快捷语法，常用于文档字符串，在文件的特定地点，被当做注释。</p>
@@ -264,7 +264,7 @@
 <h2 id="六、注释"><a href="#六、注释" class="headerlink" title="六、注释"></a>六、注释</h2><ul>
 <li>注释是以<code>#</code>开头的语句，一般体现为独立的一行或写在行尾。</li>
 <li>Python 没有块注释，因此多行注释也是使用<code>#</code></li>
-<li>行间注释使用两组连续的三单引号包裹注释内容<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#这是独立一行注释</span></span><br><span class="line"><span class="comment">#在代码中不要使用无意义的注释</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, Word!&quot;</span>);<span class="string">&#x27;&#x27;&#x27;输出语句1&#x27;&#x27;&#x27;</span>; <span class="built_in">print</span>(<span class="string">&quot;Hello, Python!&quot;</span>);<span class="comment">#输出语句2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">Hello, Word!</span><br><span class="line">Hello, Python!</span><br></pre></td></tr></table></figure></li>
+<li>行间注释使用两组连续的三单引号<code>&#39;&#39;&#39;</code>包裹注释内容<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#这是独立一行注释</span></span><br><span class="line"><span class="comment">#在代码中不要使用无意义的注释</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, Word!&quot;</span>);<span class="string">&#x27;&#x27;&#x27;输出语句1&#x27;&#x27;&#x27;</span>; <span class="built_in">print</span>(<span class="string">&quot;Hello, Python!&quot;</span>);<span class="comment">#输出语句2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">Hello, Word!</span><br><span class="line">Hello, Python!</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="七、空格和空行"><a href="#七、空格和空行" class="headerlink" title="七、空格和空行"></a>七、空格和空行</h2><ul>
 <li>为了让代码看起来更清晰，具有更好的可读性，有时会在代码中使用空格和空行。空格或者空行与代码缩进不同，它并不是 Python 语法的一部分。</li>
@@ -274,7 +274,8 @@
 <li>在变量赋值时添加空格。<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">hello = <span class="string">&quot;world&quot;</span></span><br></pre></td></tr></table></figure></li>
 <li>类成员函数之间空一行，模块级函数和类定义之间空两行；<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">         </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hello</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="八、输出"><a href="#八、输出" class="headerlink" title="八、输出"></a>八、输出</h2><figure class="highlight plaintext"><figcaption><span>默认输出是换行的，如果要实现不换行需要加上end参数。</span></figcaption><table><tr><td class="code"><pre><span class="line">```python</span><br><span class="line">x=&quot;a&quot;</span><br><span class="line">y=&quot;b&quot;</span><br><span class="line">print(x, end=&#x27; &#x27;)</span><br><span class="line">print(y, end=&#x27; &#x27;)</span><br></pre></td></tr></table></figure>
+<h2 id="八、输出"><a href="#八、输出" class="headerlink" title="八、输出"></a>八、输出</h2><p>在使用 <code>print()</code> 输出时默认是换行的，如果要实现不换行需要加上<code>end</code>参数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x=<span class="string">&quot;a&quot;</span></span><br><span class="line">y=<span class="string">&quot;b&quot;</span></span><br><span class="line"><span class="built_in">print</span>(x, end=<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(y, end=<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">a/b/</span><br></pre></td></tr></table></figure>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>使用缩进、空格、换行等规定语法一方面可以保障程序运行正常，也增加了程序本身的阅读性。养成良好的编码习惯，非常的重要。</p>
 <blockquote>
