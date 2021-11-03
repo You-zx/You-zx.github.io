@@ -317,7 +317,7 @@
   </entry>
   <entry>
     <title>icGo+Gitee搭建图床</title>
-    <url>/2021/11/03/PicGoGitee/</url>
+    <url>/2021/11/03/PicgoGitee/</url>
     <content><![CDATA[<h1 id="PicGo-Gitee搭建图床"><a href="#PicGo-Gitee搭建图床" class="headerlink" title="PicGo+Gitee搭建图床"></a>PicGo+Gitee搭建图床</h1><h3 id="1-安装PicGo"><a href="#1-安装PicGo" class="headerlink" title="1. 安装PicGo"></a>1. 安装PicGo</h3><ul>
 <li>前往<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo官网</a>下载PicGo</li>
 <li>注意：windwos 选择.exe，mac 系统选择dmg下载。</li>
