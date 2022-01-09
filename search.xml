@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>关于我</title>
-    <url>/2021/07/09/AboutMe/</url>
-    <content><![CDATA[<h1 id="我与这个博客"><a href="#我与这个博客" class="headerlink" title="我与这个博客"></a>我与这个博客</h1><hr>
-<p> &ensp;&ensp;&ensp;&ensp;  <em><strong>Cooper</strong></em>，一个喜欢关注新奇技术的程序猴🤪，目前位于魔都上海，2019开始正式进入这个圈子。一直以来想做一个自己的博客的，现在终于动手实现了。<br><br> &ensp;&ensp;&ensp;&ensp;推动我来做这件事的主要原因，还是在工作过程中逐渐意识到有些东西是需要记录下来的，无论是爬过的坑，还是自己的成果，动手去记录下来，在以后也是一种回忆。我的文章有纯原创也有基于其他博主的文章整理出的，如果你对我的博客或我的文章有什么建议或意见，欢迎来联系我。</p>
-<p><strong>你可以在这里找到我</strong>：</p>
-<ul>
-<li><p>GitHub：<a href="https://github.com/You-zx">https://github.com/You-zx</a></p>
-</li>
-<li><p>QQ：<a href="https://shang.qq.com//open_webaio.html">877056668</a></p>
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>关于我</category>
-      </categories>
-      <tags>
-        <tag>关于我</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo搭建博客步骤详解</title>
     <url>/2021/06/21/Hexo-BuildABlog/</url>
     <content><![CDATA[<h1 id="Hexo-搭建博客步骤详解（Windows）"><a href="#Hexo-搭建博客步骤详解（Windows）" class="headerlink" title="Hexo 搭建博客步骤详解（Windows）"></a>Hexo 搭建博客步骤详解（Windows）</h1><h2 id="一、安装相关程序"><a href="#一、安装相关程序" class="headerlink" title="一、安装相关程序"></a>一、安装相关程序</h2><p><strong>1. 安装 Node.js</strong></p>
@@ -191,8 +170,29 @@
       </tags>
   </entry>
   <entry>
-    <title>Picgo+Gitee搭建图床</title>
-    <url>/2021/11/04/PicgoGitee/</url>
+    <title>关于我</title>
+    <url>/2021/07/09/AboutMe/</url>
+    <content><![CDATA[<h1 id="我与这个博客"><a href="#我与这个博客" class="headerlink" title="我与这个博客"></a>我与这个博客</h1><hr>
+<p> &ensp;&ensp;&ensp;&ensp;  <em><strong>Cooper</strong></em>，一个喜欢关注新奇技术的程序猴🤪，目前位于魔都上海，2019开始正式进入这个圈子。一直以来想做一个自己的博客的，现在终于动手实现了。<br><br> &ensp;&ensp;&ensp;&ensp;推动我来做这件事的主要原因，还是在工作过程中逐渐意识到有些东西是需要记录下来的，无论是爬过的坑，还是自己的成果，动手去记录下来，在以后也是一种回忆。我的文章有纯原创也有基于其他博主的文章整理出的，如果你对我的博客或我的文章有什么建议或意见，欢迎来联系我。</p>
+<p><strong>你可以在这里找到我</strong>：</p>
+<ul>
+<li><p>GitHub：<a href="https://github.com/You-zx">https://github.com/You-zx</a></p>
+</li>
+<li><p>QQ：<a href="https://shang.qq.com//open_webaio.html">877056668</a></p>
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>关于我</category>
+      </categories>
+      <tags>
+        <tag>关于我</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ImageHosting搭建图床</title>
+    <url>/2021/11/04/ImageHosting/</url>
     <content><![CDATA[<h1 id="PicGo-Gitee搭建图床"><a href="#PicGo-Gitee搭建图床" class="headerlink" title="PicGo+Gitee搭建图床"></a>PicGo+Gitee搭建图床</h1><h3 id="1-安装PicGo"><a href="#1-安装PicGo" class="headerlink" title="1. 安装PicGo"></a>1. 安装PicGo</h3><ul>
 <li>前往<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo官网</a>下载PicGo</li>
 <li>注意：windwos 选择.exe，mac 系统选择dmg下载。</li>
