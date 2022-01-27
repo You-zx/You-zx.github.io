@@ -144,7 +144,7 @@
     
     
     <article
-  id="post-varcharAndNvarchar"
+  id="post-sqlvarcharnvarchar"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -155,8 +155,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2022/01/27/varcharAndNvarchar/"
-    >SQLServer�� VARCHAR��NVARCHAR</a> 
+  <a class="article-title" href="/2022/01/27/sqlvarcharnvarchar/"
+    >SQLServer中NVARCHAR与VARCHAR</a> 
 </h2>
  
 
@@ -164,55 +164,55 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/01/27/varcharAndNvarchar/" class="article-date">
+      <a href="/2022/01/27/sqlvarcharnvarchar/" class="article-date">
   <time datetime="2022-01-27T14:38:22.000Z" itemprop="datePublished">2022-01-27</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/VARCHAR%EF%BF%BD%EF%BF%BDNVARCHAR/">VARCHAR��NVARCHAR</a>
+    <a class="article-category-link" href="/categories/NVARCHAR%E4%B8%8EVARCHAR/">NVARCHAR与VARCHAR</a>
   </div>
    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="1������"><a href="#1������" class="headerlink" title="1������"></a>1������</h2><ul>
-<li>SQLserver Ĭ���������Ϊ<code>Chinese_PRC_CI_AS</code>�����������ʹ��<code>varchar</code>���������ԡ�������ȡ����������ַ��Լ�һЩ�����ǹ��ҵ��ַ���ͬʱ<code>varchar</code>�����ڴ��Ӣ���ַ�������ʱ��<code>nvarchar</code>��ʡһ��Ĵ洢�ռ䣬�������������ַ�����Ƨ��ʱ����������⡣</li>
+  <h2 id="1、区别"><a href="#1、区别" class="headerlink" title="1、区别"></a>1、区别</h2><ul>
+<li>SQLserver 默认排序规则为<code>Chinese_PRC_CI_AS</code>，此排序规则使用<code>varchar</code>类型来可以“正常存取”存放中文字符以及一些东南亚国家的字符，同时<code>varchar</code>类型在存放英文字符和数字时比<code>nvarchar</code>节省一半的存储空间，但在遇到特殊字符或生僻字时，会产生问题。</li>
 </ul>
 <blockquote>
 <blockquote>
-<p><code>Chinese_PRC</code>����Դ�½������ UNICODE ���������<br/><br><code>CI</code>��CaseSensitivity��ָ�������ִ�Сд��<br/><br><code>AS</code>��AccentSensitivity��ָ������������</p>
+<p><code>Chinese_PRC</code>：针对大陆简体字 UNICODE 的排序规则。<br/><br><code>CI</code>：CaseSensitivity：指定不区分大小写。<br/><br><code>AS</code>：AccentSensitivity：指定区分重音。</p>
 </blockquote>
 </blockquote>
 <blockquote>
 <blockquote>
-<p><code>VARCHAR</code>���͵���ʹ��ANSI���룬Ҳ��GBK�洢���ݣ����ܴ洢emoji���飩��<br/><br><code>NVARCHAR</code>���͵���ʹ��UTF-16����洢���ݣ��ܴ洢����Unicode�ַ�������emoji���飩��</p>
+<p><code>VARCHAR</code>类型的列使用ANSI编码，也即GBK存储数据（不能存储emoji表情）。<br/><br><code>NVARCHAR</code>类型的列使用UTF-16编码存储数据（能存储所有Unicode字符，包含emoji表情）。</p>
 </blockquote>
 </blockquote>
 <ul>
-<li>���磺����cooper</li>
+<li>例如：我是cooper</li>
 </ul>
-<p><code>VARCHAR</code>�ֶ�ռ2��2+6=10���ֽڵĴ洢�ռ䡣</p>
-<p><code>NVARCHAR</code>�ֶ�ռ8��2=16���ֽڵĴ洢�ռ䡣</p>
-<h2 id="2��Ӧ��"><a href="#2��Ӧ��" class="headerlink" title="2��Ӧ��"></a>2��Ӧ��</h2><ol>
-<li>д��<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE test (</span><br><span class="line">	[name] [varchar](50) NULL,</span><br><span class="line">	[type] [nvarchar](50) NULL</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">INSERT INTO test (name, type)</span><br><span class="line">VALUES (N&#x27;?&#x27;, N&#x27;?&#x27;)</span><br></pre></td></tr></table></figure></li>
+<p><code>VARCHAR</code>字段占2×2+6=10个字节的存储空间。</p>
+<p><code>NVARCHAR</code>字段占8×2=16个字节的存储空间。</p>
+<h2 id="2、应用"><a href="#2、应用" class="headerlink" title="2、应用"></a>2、应用</h2><ol>
+<li>写入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE test (</span><br><span class="line">	[name] [varchar](50) NULL,</span><br><span class="line">	[type] [nvarchar](50) NULL</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">INSERT INTO test (name, type)</span><br><span class="line">VALUES (N&#x27;?&#x27;, N&#x27;?&#x27;)</span><br></pre></td></tr></table></figure></li>
 </ol>
 <ul>
-<li>������ַ�Ϊ<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%95%86%E6%A0%87/691568?fromtitle=%C2%AE&fromid=15198122&fr=aladdin">�̱��ϵ�?</a>��</li>
-<li><code>N</code>��ʾ�������е��ַ���ʹ�õ���Unicode���룬����sqlserver�������Unicode�ķ�ʽȥ�������ݣ���������GBK����ķ�ʽ��</li>
+<li>插入的字符为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%95%86%E6%A0%87/691568?fromtitle=%C2%AE&fromid=15198122&fr=aladdin">商标上的?</a>。</li>
+<li><code>N</code>表示单引号中的字符串使用的是Unicode编码，我们sqlserver引擎会用Unicode的方式去解析内容，而不是用GBK编码的方式。</li>
 </ul>
 <ol start="2">
-<li>��ѯ<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> <span class="string">&#x27;%?%&#x27;</span><span class="comment">--����N</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> N<span class="string">&#x27;%?%&#x27;</span><span class="comment">--��N</span></span><br></pre></td></tr></table></figure>
-��ѯ������£�<br><img src="https://gitee.com/you-zx/blog-image/raw/master/img/SQL-N-varchar.jpg"></li>
+<li>查询<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> <span class="string">&#x27;%?%&#x27;</span><span class="comment">--不用N</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> N<span class="string">&#x27;%?%&#x27;</span><span class="comment">--用N</span></span><br></pre></td></tr></table></figure>
+查询结果如下：<br><img src="https://gitee.com/you-zx/blog-image/raw/master/img/SQL-N-varchar.jpg"></li>
 </ol>
-<p><strong>�ܽ�</strong></p>
+<p><strong>总结</strong></p>
 <ol>
-<li>���ݿ�����ʱ��Ҫע���Ƿ���ܴ��������ַ�����Ƨ��</li>
-<li>����ʹ�� NVARCHAR ����ŷ�Ӣ���ַ����ݣ����ɣ�</li>
+<li>数据库表设计时需要注意是否可能存入特殊字符与生僻字</li>
+<li>建议使用 NVARCHAR 来存放非英文字符数据，理由：</li>
 </ol>
 <ul>
-<li>VARCHAR ���ʹ�������ַ�����Ƨ��ʱ����������ַ���ת�������</li>
-<li>���������ַ���ʹ�� VARCHAR �� NVARCHAR ����ͬ���Ŀռ䣬����Ӣ���ַ���ʹ�� VARCHAR �� NVARCHAR ��ʡһ���Ŀռ䣬�����Ŵ��̳ɱ�Խ��Խ�ͣ������������ܺͽ�ʡ�ĳɱ����ޡ������⣺��������д��ڴ���Ӣ���ַ���������Ӣ���ַ�������Խ��ʵ��������� VARCHAR ���ͣ�</li>
-<li>ʹ�� VARCHAR ��ŷ�Ӣ���ַ�ʱ���������ɴ����Ԥ��ֵ��������ִ�� LIKE ����ƥ���Ԥ��ʱ��</li>
+<li>VARCHAR 类型存放特殊字符或生僻字时存在乱码或字符被转变的问题</li>
+<li>对于中文字符，使用 VARCHAR 和 NVARCHAR 消耗同样的空间，对于英文字符，使用 VARCHAR 比 NVARCHAR 节省一倍的空间，但随着磁盘成本越来越低，其提升的性能和节省的成本有限。（例外：如果数据中存在大量英文字符和少量非英文字符，则可以结合实际情况考虑 VARCHAR 类型）</li>
+<li>使用 VARCHAR 存放非英文字符时，容易生成错误的预估值，尤其在执行 LIKE 这类匹配的预估时。</li>
 </ul>
  
       <!-- reward -->
