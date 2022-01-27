@@ -129,8 +129,8 @@
 <li><code>N</code>表示单引号中的字符串使用的是Unicode编码，我们sqlserver引擎会用Unicode的方式去解析内容，而不是用GBK编码的方式。</li>
 </ul>
 <ol start="2">
-<li>查询<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> <span class="string">&#x27;%®%&#x27;</span><span class="comment">--不用N</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> N<span class="string">&#x27;®%&#x27;</span><span class="comment">--用N</span></span><br></pre></td></tr></table></figure>
-查询结果如下：<br><img src="https://gitee.com/you-zx/blog-image/raw/master/img/SQL-N-varchar.jpg"></li>
+<li>查询<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> <span class="string">&#x27;%®%&#x27;</span> <span class="comment">--不用N</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> TestDemo <span class="keyword">WHERE</span> order_type <span class="keyword">LIKE</span> N<span class="string">&#x27;®%&#x27;</span> <span class="comment">--用N</span></span><br></pre></td></tr></table></figure>
+查询结果如下：<br><img src="https://gitee.com/you-zx/blog-image/raw/master/img/SQL-N-varchar.jpg" alt="查询结果"></li>
 </ol>
 <p><strong>总结</strong></p>
 <ol>
