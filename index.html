@@ -144,7 +144,7 @@
     
     
     <article
-  id="post-sql执行优化"
+  id="post-sql-GetWeekNumber"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -155,7 +155,62 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2022/06/10/sql%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96/"
+  <a class="article-title" href="/2022/06/10/sql-GetWeekNumber/"
+    >获取指定日期在其所在（年/月）的第几周</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/06/10/sql-GetWeekNumber/" class="article-date">
+  <time datetime="2022-06-10T12:00:22.000Z" itemprop="datePublished">2022-06-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="获取指定日期在其所在（年-月）的第几周"><a href="#获取指定日期在其所在（年-月）的第几周" class="headerlink" title="获取指定日期在其所在（年/月）的第几周"></a>获取指定日期在其所在（年/月）的第几周</h1><h4 id="每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周"><a href="#每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周" class="headerlink" title="每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周"></a>每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">SET ANSI_NULLS ON</span><br><span class="line">GO</span><br><span class="line">SET QUOTED_IDENTIFIER ON</span><br><span class="line">GO</span><br><span class="line">CREATE function [dbo].[Get_Week_No](@Date datetime,@Dimensionality varchar(100))</span><br><span class="line">--每周第一天为日，周序号以周日所在序号顺次排列</span><br><span class="line">returns varchar(100)</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">	declare @WkNumber varchar(100)</span><br><span class="line">	if(ISNULL(@Date,&#x27;&#x27;)=&#x27;&#x27;)</span><br><span class="line">	begin</span><br><span class="line">		set @WkNumber=&#x27;&#x27;;</span><br><span class="line">	end</span><br><span class="line">	else</span><br><span class="line">	begin</span><br><span class="line">		if(@Dimensionality=&#x27;YEAR&#x27;)</span><br><span class="line">		BEGIN</span><br><span class="line">			--@Date在其所在年份的第几周</span><br><span class="line">			SELECT @WkNumber=datepart( wk, cast(@Date as date))</span><br><span class="line">		END</span><br><span class="line">		ELSE</span><br><span class="line">		BEGIN</span><br><span class="line">			--@Date在其所在月份的第几周</span><br><span class="line">			select @WkNumber= datepart(day,dateadd(day,1-(datepart(weekday,cast(@Date as datetime))),cast(@Date as datetime)))/7 + 1 </span><br><span class="line">		END</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">		return @WkNumber</span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E6%97%A5%E6%9C%9F/" rel="tag">SQL日期</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-sql-optimization"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/06/10/sql-optimization/"
     >SQL执行效率优化</a> 
 </h2>
  
@@ -164,7 +219,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/06/10/sql%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96/" class="article-date">
+      <a href="/2022/06/10/sql-optimization/" class="article-date">
   <time datetime="2022-06-10T12:00:22.000Z" itemprop="datePublished">2022-06-10</time>
 </a> 
   <div class="article-category">
@@ -205,61 +260,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E4%BC%98%E5%8C%96/" rel="tag">SQL优化</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-sql获取日期所在周序号"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/06/10/sql%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E6%89%80%E5%9C%A8%E5%91%A8%E5%BA%8F%E5%8F%B7/"
-    >获取指定日期在其所在（年/月）的第几周</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/06/10/sql%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E6%89%80%E5%9C%A8%E5%91%A8%E5%BA%8F%E5%8F%B7/" class="article-date">
-  <time datetime="2022-06-10T12:00:22.000Z" itemprop="datePublished">2022-06-10</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/SQL/">SQL</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="获取指定日期在其所在（年-月）的第几周"><a href="#获取指定日期在其所在（年-月）的第几周" class="headerlink" title="获取指定日期在其所在（年/月）的第几周"></a>获取指定日期在其所在（年/月）的第几周</h1><h4 id="每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周"><a href="#每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周" class="headerlink" title="每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周"></a>每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">SET ANSI_NULLS ON</span><br><span class="line">GO</span><br><span class="line">SET QUOTED_IDENTIFIER ON</span><br><span class="line">GO</span><br><span class="line">CREATE function [dbo].[Get_Week_No](@Date datetime,@Dimensionality varchar(100))</span><br><span class="line">--每周第一天为日，周序号以周日所在序号顺次排列</span><br><span class="line">returns varchar(100)</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">	declare @WkNumber varchar(100)</span><br><span class="line">	if(ISNULL(@Date,&#x27;&#x27;)=&#x27;&#x27;)</span><br><span class="line">	begin</span><br><span class="line">		set @WkNumber=&#x27;&#x27;;</span><br><span class="line">	end</span><br><span class="line">	else</span><br><span class="line">	begin</span><br><span class="line">		if(@Dimensionality=&#x27;YEAR&#x27;)</span><br><span class="line">		BEGIN</span><br><span class="line">			--@Date在其所在年份的第几周</span><br><span class="line">			SELECT @WkNumber=datepart( wk, cast(@Date as date))</span><br><span class="line">		END</span><br><span class="line">		ELSE</span><br><span class="line">		BEGIN</span><br><span class="line">			--@Date在其所在月份的第几周</span><br><span class="line">			select @WkNumber= datepart(day,dateadd(day,1-(datepart(weekday,cast(@Date as datetime))),cast(@Date as datetime)))/7 + 1 </span><br><span class="line">		END</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">		return @WkNumber</span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E6%97%A5%E6%9C%9F/" rel="tag">SQL日期</a></li></ul>
 
     </footer>
   </div>
