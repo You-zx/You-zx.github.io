@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>关于我</title>
+    <url>/2021/07/09/AboutMe/</url>
+    <content><![CDATA[<h1 id="我与这个博客"><a href="#我与这个博客" class="headerlink" title="我与这个博客"></a>我与这个博客</h1><hr>
+<p> &ensp;&ensp;&ensp;&ensp;  <em><strong>Cooper</strong></em>，一个喜欢关注新奇技术的程序猴🤪，目前位于魔都上海，2019开始正式进入这个圈子。一直以来想做一个自己的博客的，现在终于动手实现了。<br><br> &ensp;&ensp;&ensp;&ensp;推动我来做这件事的主要原因，还是在工作过程中逐渐意识到有些东西是需要记录下来的，无论是爬过的坑，还是自己的成果，动手去记录下来，在以后也是一种回忆。我的文章有纯原创也有基于其他博主的文章整理出的，如果你对我的博客或我的文章有什么建议或意见，欢迎来联系我。</p>
+<p><strong>你可以在这里找到我</strong>：</p>
+<ul>
+<li><p>GitHub：<a href="https://github.com/You-zx">https://github.com/You-zx</a></p>
+</li>
+<li><p>QQ：<a href="https://shang.qq.com//open_webaio.html">877056668</a></p>
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>关于我</category>
+      </categories>
+      <tags>
+        <tag>关于我</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo搭建博客步骤详解</title>
     <url>/2021/06/21/Hexo-BuildABlog/</url>
     <content><![CDATA[<h1 id="Hexo-搭建博客步骤详解（Windows）"><a href="#Hexo-搭建博客步骤详解（Windows）" class="headerlink" title="Hexo 搭建博客步骤详解（Windows）"></a>Hexo 搭建博客步骤详解（Windows）</h1><h2 id="一、安装相关程序"><a href="#一、安装相关程序" class="headerlink" title="一、安装相关程序"></a>一、安装相关程序</h2><p><strong>1. 安装 Node.js</strong></p>
@@ -170,27 +191,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于我</title>
-    <url>/2021/07/09/AboutMe/</url>
-    <content><![CDATA[<h1 id="我与这个博客"><a href="#我与这个博客" class="headerlink" title="我与这个博客"></a>我与这个博客</h1><hr>
-<p> &ensp;&ensp;&ensp;&ensp;  <em><strong>Cooper</strong></em>，一个喜欢关注新奇技术的程序猴🤪，目前位于魔都上海，2019开始正式进入这个圈子。一直以来想做一个自己的博客的，现在终于动手实现了。<br><br> &ensp;&ensp;&ensp;&ensp;推动我来做这件事的主要原因，还是在工作过程中逐渐意识到有些东西是需要记录下来的，无论是爬过的坑，还是自己的成果，动手去记录下来，在以后也是一种回忆。我的文章有纯原创也有基于其他博主的文章整理出的，如果你对我的博客或我的文章有什么建议或意见，欢迎来联系我。</p>
-<p><strong>你可以在这里找到我</strong>：</p>
-<ul>
-<li><p>GitHub：<a href="https://github.com/You-zx">https://github.com/You-zx</a></p>
-</li>
-<li><p>QQ：<a href="https://shang.qq.com//open_webaio.html">877056668</a></p>
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>关于我</category>
-      </categories>
-      <tags>
-        <tag>关于我</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>搭建图床</title>
     <url>/2021/11/04/ImageHosting/</url>
     <content><![CDATA[<h1 id="PicGo-Gitee搭建图床"><a href="#PicGo-Gitee搭建图床" class="headerlink" title="PicGo+Gitee搭建图床"></a>PicGo+Gitee搭建图床</h1><h2 id="1-安装PicGo"><a href="#1-安装PicGo" class="headerlink" title="1. 安装PicGo"></a>1. 安装PicGo</h2><ul>
@@ -224,6 +224,9 @@
 <li>勾选一项即可</li>
 <li><strong>注意：私人令牌生成后必须自己妥善保存，关闭后无法重新查看</strong></li>
 </ul>
+<blockquote>
+<p>gitee做图床，上传的图片大小不能超过1MB。<br>参考：<a href="https://www.cnblogs.com/xsyz/p/14043564.html">https://www.cnblogs.com/xsyz/p/14043564.html</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>搭建图床</category>
@@ -358,6 +361,23 @@
       </tags>
   </entry>
   <entry>
+    <title>照片墙</title>
+    <url>/2022/01/27/picture/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>声明</strong>:</p>
+<ul>
+<li>转载请注明出处。</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>摄影</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQLServer中NVARCHAR与VARCHAR</title>
     <url>/2022/01/27/sqlvarcharnvarchar/</url>
     <content><![CDATA[<h2 id="1、区别"><a href="#1、区别" class="headerlink" title="1、区别"></a>1、区别</h2><ul>
@@ -405,6 +425,49 @@
       </categories>
       <tags>
         <tag>SQLServer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL执行效率优化</title>
+    <url>/2022/06/10/sql%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="SQL-执行效率优化"><a href="#SQL-执行效率优化" class="headerlink" title="SQL 执行效率优化"></a>SQL 执行效率优化</h1><h2 id="一、避免使用SELECT"><a href="#一、避免使用SELECT" class="headerlink" title="一、避免使用SELECT *"></a>一、避免使用SELECT *</h2><ol>
+<li>SELECT * 属于全表扫描，不利于提高查询效率。</li>
+<li>如果本身只需要使用表中的几个字段，全量查询增大了使查询结果集，占用更多的数据库内存，增加数据库负担，甚至出现内存溢出。</li>
+<li>除了对数据库增加了压力，对应用程序和网络也增加了压力。</li>
+</ol>
+<p>因此，我们在查询时只查需要用到的列就可以了</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--反例</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">=</span><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--正例</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、用UNION-ALL代替UNION"><a href="#二、用UNION-ALL代替UNION" class="headerlink" title="二、用UNION ALL代替UNION"></a>二、用UNION ALL代替UNION</h2><p>众所周知，使用<code>UNION ALL</code>可以获取包含重复数据在内的所有数据。而使用<code>UNION</code>查询出的结果集，是经过了比较去重后的。</br><br>去重这个过程数据库需要将所有数据进行遍历比较，会增加查询的耗时。因此在确保<strong>两个数据集没有重复数据</strong>的情况下，使用<code>UNION ALL</code>是最优的。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--反例</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&lt;</span><span class="number">100</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&gt;</span><span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--正例</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&lt;</span><span class="number">100</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&gt;</span><span class="number">200</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、IN-与-EXISTS"><a href="#三、IN-与-EXISTS" class="headerlink" title="三、IN 与 EXISTS"></a>三、IN 与 EXISTS</h2><p><code>IN</code>适用于主表的数据量大于子表的情况，而<code>EXISTS</code>则相反。</br></p>
+<blockquote>
+<p>两者的详细区别，可以看看这个博主的文章：</br><br><a href="https://www.jianshu.com/p/f212527d76ff">SQL 查询中 in 和 exists 的区别分析</a></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--IN适用场景</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id <span class="keyword">IN</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> UserBase <span class="keyword">WHERE</span> ID<span class="operator">&lt;</span><span class="number">100</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--EXISTS使用场景</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> UserBase A <span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> B <span class="keyword">WHERE</span> A.Userid<span class="operator">=</span>B.Userid</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、用连接查询代替子查询"><a href="#四、用连接查询代替子查询" class="headerlink" title="四、用连接查询代替子查询"></a>四、用连接查询代替子查询</h2><p>子查询程序会先执行在嵌套在最内层的语句，再执行外层的语句。</br><br>执行时会自动创建临时表，查询完毕后会再删除这些临时表，有一些额外的性能消耗。在整体数据量较大的情况下，可以改成连接查询</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">Order</span> A <span class="keyword">INNER</span> <span class="keyword">JOIN</span> UserBase B</span><br><span class="line"><span class="keyword">ON</span> A.Userid<span class="operator">=</span>B.Userid</span><br><span class="line"><span class="keyword">WHERE</span> B.Userid<span class="operator">&lt;</span><span class="number">1000</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>获取指定日期在其所在（年/月）的第几周</title>
+    <url>/2022/06/10/sql%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E5%91%A8%E5%BA%8F%E5%8F%B7/</url>
+    <content><![CDATA[<h1 id="获取指定日期在其所在（年-月）的第几周"><a href="#获取指定日期在其所在（年-月）的第几周" class="headerlink" title="获取指定日期在其所在（年/月）的第几周"></a>获取指定日期在其所在（年/月）的第几周</h1><h4 id="每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周"><a href="#每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周" class="headerlink" title="每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周"></a>每周的第一天为周日，如果这个周跨月份，则无论输入本周内任何一天，都会计算在上月的最后一周</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SET ANSI_NULLS ON</span><br><span class="line">GO</span><br><span class="line">SET QUOTED_IDENTIFIER ON</span><br><span class="line">GO</span><br><span class="line">CREATE function [dbo].[Get_Week_No](@Date datetime,@Dimensionality varchar(100))</span><br><span class="line">--每周第一天为日，周序号以周日所在序号顺次排列</span><br><span class="line">returns varchar(100)</span><br><span class="line">as</span><br><span class="line">begin</span><br><span class="line">	declare @WkNumber varchar(100)</span><br><span class="line">	if(ISNULL(@Date,&#x27;&#x27;)=&#x27;&#x27;)</span><br><span class="line">	begin</span><br><span class="line">		set @WkNumber=&#x27;&#x27;;</span><br><span class="line">	end</span><br><span class="line">	else</span><br><span class="line">	begin</span><br><span class="line">		if(@Dimensionality=&#x27;YEAR&#x27;)</span><br><span class="line">		BEGIN</span><br><span class="line">			--@Date在其所在年份的第几周</span><br><span class="line">			SELECT @WkNumber=datepart( wk, cast(@Date as date))</span><br><span class="line">		END</span><br><span class="line">		ELSE</span><br><span class="line">		BEGIN</span><br><span class="line">			--@Date在其所在月份的第几周</span><br><span class="line">			select @WkNumber= datepart(day,dateadd(day,1-(datepart(weekday,cast(@Date as datetime))),cast(@Date as datetime)))/7 + 1 </span><br><span class="line">		END</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">		return @WkNumber</span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL日期</tag>
       </tags>
   </entry>
 </search>

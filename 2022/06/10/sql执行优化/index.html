@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>摄影 |  Cooper</title>
+      <title>SQL执行效率优化 |  Cooper</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -48,8 +48,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="page-"
-  class="article article-type-page"
+  id="post-sql执行优化"
+  class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -59,28 +59,70 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  摄影
+  SQL执行效率优化
 </h1>
  
 
       
     </header>
-       
-    <div class="article-entry" itemprop="articleBody">
-      
-<div class="justified-gallery" id="gallery">
-  
-  <div>
-    <img src="https://gitee.com/you-zx/blog-image/raw/master/img/giteeclub.png" itemprop="image" alt="001" style="cursor: pointer;">
+     
+    <div class="article-meta">
+      <a href="/2022/06/10/sql%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96/" class="article-date">
+  <time datetime="2022-06-10T12:00:22.000Z" itemprop="datePublished">2022-06-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
   </div>
   
-  <div>
-    <img src="https://gitee.com/you-zx/blog-image/raw/master/img/picgo.PNG" itemprop="image" alt="002" style="cursor: pointer;">
-  </div>
-  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">501</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">2 分钟</span>
+        </span>
+    </span>
 </div>
  
-   
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="SQL-执行效率优化"><a href="#SQL-执行效率优化" class="headerlink" title="SQL 执行效率优化"></a>SQL 执行效率优化</h1><h2 id="一、避免使用SELECT"><a href="#一、避免使用SELECT" class="headerlink" title="一、避免使用SELECT *"></a>一、避免使用SELECT *</h2><ol>
+<li>SELECT * 属于全表扫描，不利于提高查询效率。</li>
+<li>如果本身只需要使用表中的几个字段，全量查询增大了使查询结果集，占用更多的数据库内存，增加数据库负担，甚至出现内存溢出。</li>
+<li>除了对数据库增加了压力，对应用程序和网络也增加了压力。</li>
+</ol>
+<p>因此，我们在查询时只查需要用到的列就可以了</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--反例</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">=</span><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--正例</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、用UNION-ALL代替UNION"><a href="#二、用UNION-ALL代替UNION" class="headerlink" title="二、用UNION ALL代替UNION"></a>二、用UNION ALL代替UNION</h2><p>众所周知，使用<code>UNION ALL</code>可以获取包含重复数据在内的所有数据。而使用<code>UNION</code>查询出的结果集，是经过了比较去重后的。</br><br>去重这个过程数据库需要将所有数据进行遍历比较，会增加查询的耗时。因此在确保<strong>两个数据集没有重复数据</strong>的情况下，使用<code>UNION ALL</code>是最优的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--反例</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&lt;</span><span class="number">100</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&gt;</span><span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--正例</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&lt;</span><span class="number">100</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id<span class="operator">&gt;</span><span class="number">200</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、IN-与-EXISTS"><a href="#三、IN-与-EXISTS" class="headerlink" title="三、IN 与 EXISTS"></a>三、IN 与 EXISTS</h2><p><code>IN</code>适用于主表的数据量大于子表的情况，而<code>EXISTS</code>则相反。</br></p>
+<blockquote>
+<p>两者的详细区别，可以看看这个博主的文章：</br><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f212527d76ff">SQL 查询中 in 和 exists 的区别分析</a></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--IN适用场景</span></span><br><span class="line"><span class="keyword">SELECT</span> Order_number,Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> <span class="keyword">where</span> Id <span class="keyword">IN</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> UserBase <span class="keyword">WHERE</span> ID<span class="operator">&lt;</span><span class="number">100</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--EXISTS使用场景</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> UserBase A <span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> Userid <span class="keyword">FROM</span> <span class="keyword">Order</span> B <span class="keyword">WHERE</span> A.Userid<span class="operator">=</span>B.Userid</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、用连接查询代替子查询"><a href="#四、用连接查询代替子查询" class="headerlink" title="四、用连接查询代替子查询"></a>四、用连接查询代替子查询</h2><p>子查询程序会先执行在嵌套在最内层的语句，再执行外层的语句。</br><br>执行时会自动创建临时表，查询完毕后会再删除这些临时表，有一些额外的性能消耗。在整体数据量较大的情况下，可以改成连接查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">Order</span> A <span class="keyword">INNER</span> <span class="keyword">JOIN</span> UserBase B</span><br><span class="line"><span class="keyword">ON</span> A.Userid<span class="operator">=</span>B.Userid</span><br><span class="line"><span class="keyword">WHERE</span> B.Userid<span class="operator">&lt;</span><span class="number">1000</span></span><br></pre></td></tr></table></figure>
+ 
       <!-- reward -->
       
     </div>
@@ -144,15 +186,27 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://you-zx.github.io/photos/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://you-zx.github.io/2022/06/10/sql%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E4%BC%98%E5%8C%96/" rel="tag">SQL优化</a></li></ul>
+
     </footer>
   </div>
 
    
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/06/10/sql%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E5%91%A8%E5%BA%8F%E5%8F%B7/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">获取指定日期在其所在（年/月）的第几周</div>
+      </a>
+    
+  </nav>
+
    
 <!-- valine评论 -->
 <div id="vcomments-box">
@@ -202,7 +256,8 @@
 </style>
 
  
-    
+   
+     
 </article>
 
 </section>
@@ -355,6 +410,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link
